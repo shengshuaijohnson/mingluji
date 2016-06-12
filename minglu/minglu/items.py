@@ -8,8 +8,9 @@
 import scrapy
 
 
-class MingluItem(scrapy.Item):
+class Company(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    province=scrapy.Field()
     name=scrapy.Field()
     pass
