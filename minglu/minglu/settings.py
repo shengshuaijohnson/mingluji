@@ -16,7 +16,8 @@ NEWSPIDER_MODULE = 'minglu.spiders'
 ITEM_PIPELINES={
 	'minglu.pipelines.MingluPipeline':100,
 }
-
+COOKIES_ENABLED =False
+DOWNLOAD_DELAY = 0.05
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'minglu (+http://www.yourdomain.com)'
 

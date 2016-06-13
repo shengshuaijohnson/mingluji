@@ -12,7 +12,7 @@ class Company(scrapy.Item):
     # define the fields for your item here like:
 
 
-    question=scrapy.Field()
-    answers=scrapy.Field()
+    name=scrapy.Field()
+    province=scrapy.Field()
     id=scrapy.Field()
     pass
