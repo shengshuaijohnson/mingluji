@@ -27,26 +27,37 @@ class MinglujiSpider(Spider):
         url_by_province = response.xpath(
             '//td[@class="views-field views-field-field-province"]//@href')
         for url in url_by_province:
-            list_url = url.extract() + "/list?page=1"
+            list_url = url.extract() + "/list?page=2"
             yield scrapy.Request(list_url,
                                  callback=self.parse_step2,
                                  )
         pass
 
     def parse_step2(self, response):
-        max_page_content=response.xpath('//li[@class="pager-last last"]//@href')
-        front_url,tmp=response.url.rsplit('=',1)
-        for i in max_page_content:
-        	tmp,max_page=i.extract().rsplit('=',1)
-        	for index in range(max_page+1)
-	url=front_url+'='+index
-	self.parse_page(url)
+        max_page_content = response.xpath(
+            '//li[@class="pager-last last"]//@href').extract()[0]
+        
+        front_url, tmp = response.url.rsplit('=', 1)
+        print len(max_page_content)
+        tmp, max_page_num = max_page_content.rsplit('=', 1)
+        url=front_url+'='+max_page_num
+        print front_url
+        print 123
+        print url
+        # tmp,max_page=max_page_content.rsplit('=',1)
+        # url=front_url+'='+max_page
 
-        	#print max_page_num
+        item = Company()
+        province=re.search('com/(.*)/',response.url).group(1)
+        item['province']=province
+        item['name']=url
+        yield item
+
+        # print max_page_num
 
         pass
 
     def parse_page(self, url):
-        item=Company()
-        
+        item = Company()
+
         pass

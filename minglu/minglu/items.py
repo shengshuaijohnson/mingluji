@@ -10,7 +10,9 @@ import scrapy
 
 class Company(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    province=scrapy.Field()
-    name=scrapy.Field()
+
+
+    question=scrapy.Field()
+    answers=scrapy.Field()
+    id=scrapy.Field()
     pass

@@ -13,7 +13,9 @@ BOT_NAME = 'minglu'
 
 SPIDER_MODULES = ['minglu.spiders']
 NEWSPIDER_MODULE = 'minglu.spiders'
-
+ITEM_PIPELINES={
+	'minglu.pipelines.MingluPipeline':100,
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'minglu (+http://www.yourdomain.com)'
